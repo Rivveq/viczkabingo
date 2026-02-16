@@ -1,25 +1,10 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
@@ -28,39 +13,53 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  justify-content: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
+.container {
+  text-align: center;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+/* Klasa do ukrywania ekranów */
+.hidden {
+  display: none !important;
 }
 
-.card {
-  padding: 2em;
+/* Siatka Bingo 5x5 */
+.grid-5x5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 równych kolumn */
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.read-the-docs {
-  color: #888;
+/* Pojedyncza kratka */
+.bingo-cell {
+  background-color: #1a1a1a;
+  border: 1px solid #7d73ba;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  user-select: none; /* Żeby tekst się nie zaznaczał przy klikaniu */
+}
+
+.bingo-cell:hover {
+  background-color: #333;
+}
+
+.bingo-cell.checked {
+  background-color: #7d73ba; /* Kolor skreślonego pola */
+  color: white;
+  text-decoration: line-through;
 }
 
 button {
@@ -74,23 +73,36 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-color: #7d73ba;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.corner-logo {
+  position: fixed; /* Przykleja element do okna przeglądarki */
+  bottom: -50px;    /* Odstęp od dołu */
+  right: -20px;     /* Odstęp od prawej */
+  width: 250px;    /* Rozmiar - dostosuj według uznania */
+  height: auto;    /* Zachowuje proporcje */
+  z-index: 1000;   /* Gwarantuje, że obrazek będzie NA WIERZCHU */
+
+  filter:
+          drop-shadow(2px 0 0 white)
+          drop-shadow(-2px 0 0 white)
+          drop-shadow(0 2px 0 white)
+          drop-shadow(0 -2px 0 white);
+
+  /* Opcjonalnie: lekka animacja powiększenia */
+  transition: transform 0.2s;
+}
+
+.corner-logo:hover {
+  transform: scale(1.1);
 }
