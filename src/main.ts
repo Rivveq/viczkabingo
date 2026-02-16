@@ -2,11 +2,11 @@ import './style.css'
 
 // Bingo contents (min. 25)
 const bingoWords: string[] = [
-    "Twoja Stara", "Słychać mnie?", "Yoshi", "Jebane dzieciaki", "placeholder",
-    "placeholder", "placeholder", "placeholder", "placeholder", "placeholder",
-    "placeholder", "placeholder", "placeholder", "placeholder", "placeholder",
-    "placeholder", "placeholder", "placeholder", "placeholder", "placeholder",
-    "placeholder", "placeholder", "placeholder", "placeholder", "placeholder",
+    "Twoja Stara", "Słychać mnie?", "Yoshi", "Jebane dzieciaki", "Żydzi",
+    "Bek", "Ziewanie", "Siusiu", "Rucham ci starego", "Kurwa",
+    "Mam nadzieje, że uciągnie", "Następny stream", "Dawno mnie nie było", "Panika", "Techno żul",
+    "Krzyk", "Twój stary", "Rucham ci starą", "Sound alert", "Redeem siema",
+    "wow niesamowite", "placeholder", "placeholder", "placeholder", "placeholder",
     "placeholder", "placeholder", "placeholder", "placeholder", "placeholder"
 ];
 

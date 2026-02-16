@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "typescript": "~5.9.3",
     "vite": "^7.3.1"
   }
