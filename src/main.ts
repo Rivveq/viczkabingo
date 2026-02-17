@@ -5,7 +5,7 @@ import confetti from 'canvas-confetti';
 // Bingo contents (min. 25)
 const bingoWords: string[] = [
     "Twoja Stara", "Słychać mnie?", "Yoshi", "Dzieciaki w pracy", "placeholder",
-    "Bek", "Ziewanie", "Siusiu", "Rucham ci starego", "Kurwa",
+    "Bekanie", "Ziewanie", "Siusiu", "Rucham ci starego", "Kurwa",
     "Mam nadzieje, że uciągnie", "Następny stream", "Dawno mnie nie było", "Panika", "Techno żul",
     "Krzyk", "Twój stary", "Rucham ci starą", "Sound alert", "Redeem siema",
     "wow niesamowite", "oh mysecko", "Zimno mi", "placeholder", "placeholder",
@@ -22,6 +22,7 @@ const gridContainer = document.querySelector<HTMLDivElement>('#bingo-grid')!;
 // Cat logo and sound
 const catLogo = document.querySelector<HTMLImageElement>('.corner-logo');
 const catSound = new Audio('meow.mp3');
+const catSoundRare = new Audio('meow_rare.mp3');
 
 // Click sound
 const clickSound = new Audio('click.mp3');
@@ -121,7 +122,6 @@ function generateBoard() {
 
         // Crossing functionality
         cell.addEventListener('click', () => {
-            clickSound.playbackRate = 0.9 + (Math.random() * 0.2); // Little randomness for tha spice
             clickSound.play().catch(() => {});
 
             cell.classList.toggle('checked');
@@ -160,8 +160,61 @@ catSound.playbackRate = 1.5;
 if (catLogo) {
     catLogo.addEventListener('click', () => {
         catSound.currentTime = 0; // Reset the sound if clicked again
+        catSoundRare.currentTime = 0;
+
+        let rdm = Math.random() * 100;
 
         // Playing the sound
-        catSound.play().catch(e => console.error("ERROR: Sound problem", e));
+        if (rdm < 5){
+            catSoundRare.play().catch(e => console.error("ERROR: Sound problem", e));
+        } else {
+            catSound.play().catch(e => console.error("ERROR: Sound problem", e));
+        }
     });
 }
+
+function generateBackground() {
+    const container = document.getElementById('dynamic-background');
+    if (!container) return;
+
+    container.innerHTML = ''; // Clearing the blobs
+
+    // Color palette
+    const colors = [
+        '#484982',
+        '#AAB1F7'
+    ];
+
+    const blobCount = 5;
+
+    for (let i = 0; i < blobCount; i++) {
+        const blob = document.createElement('div');
+        blob.classList.add('gradient-blob');
+
+        // Random color from palette
+        blob.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        // Random blob size
+        const size = Math.floor(Math.random() * 40) + 30;
+        blob.style.width = `${size}vw`;
+        blob.style.height = `${size}vw`;
+
+        // Random position
+        blob.style.left = `${Math.floor(Math.random() * 100) - 20}%`;
+        blob.style.top = `${Math.floor(Math.random() * 100) - 20}%`;
+
+        // Random blob animation duration for desync between blobs
+        const duration = Math.floor(Math.random() * 30) + 25;
+
+        // Random blob animation delay
+        const delay = Math.floor(Math.random() * -50);
+
+        // Injecting those variables into css
+        blob.style.setProperty('--duration', `${duration}s`);
+        blob.style.setProperty('--delay', `${delay}s`);
+
+        container.appendChild(blob);
+    }
+}
+
+generateBackground();
