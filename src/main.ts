@@ -2,14 +2,14 @@ import './style.css'
 
 import confetti from 'canvas-confetti';
 
-// Bingo contents (min. 25)
+// Bingo contents
 const bingoWords: string[] = [
-    "Twoja Stara", "Słychać mnie?", "Yoshi", "Dzieciaki w pracy", "placeholder",
+    "Twoja Stara", "Słychać mnie?", "Yoshi", "Dzieciaki w pracy", "Zamkne okno",
     "Bekanie", "Ziewanie", "Siusiu", "Rucham ci starego", "Kurwa",
     "Mam nadzieje, że uciągnie", "Następny stream", "Dawno mnie nie było", "Panika", "Techno żul",
     "Krzyk", "Twój stary", "Rucham ci starą", "Sound alert", "Redeem siema",
-    "wow niesamowite", "oh mysecko", "Zimno mi", "placeholder", "placeholder",
-    "placeholder", "placeholder", "placeholder", "placeholder", "placeholder"
+    "wow niesamowite", "oh mysecko", "Zimno mi", "Mammon mentioned", "Wyjebka w grze",
+    "Yoshi siedzi na komputerze", "Źle czyta z czatu", "aha", "Redbullek", "Ban", "Timeout", "Rajd"
 ];
 
 // Main elements
@@ -209,7 +209,7 @@ function generateBackground() {
         // Random blob animation delay
         const delay = Math.floor(Math.random() * -50);
 
-        // Injecting those variables into css
+        // Injecting those variables into CSS
         blob.style.setProperty('--duration', `${duration}s`);
         blob.style.setProperty('--delay', `${delay}s`);
 
