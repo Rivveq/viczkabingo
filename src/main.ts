@@ -7,9 +7,10 @@ const bingoWords: string[] = [
     "Twoja Stara", "Słychać mnie?", "Yoshi", "Dzieciaki w pracy", "Zamkne okno",
     "Bekanie", "Ziewanie", "Siusiu", "Rucham ci starego", "Kurwa",
     "Mam nadzieje, że uciągnie", "Następny stream", "Dawno mnie nie było", "Panika", "Techno żul",
-    "Krzyk", "Twój stary", "Rucham ci starą", "Sound alert", "Redeem siema",
+    "Krzyk", "Twój stary", "Rucham ci starą", "Redeem siema", "Sound alert",
     "wow niesamowite", "oh mysecko", "Zimno mi", "Mammon mentioned", "Wyjebka w grze",
-    "Yoshi siedzi na komputerze", "Źle czyta z czatu", "aha", "Redbullek", "Ban", "Timeout", "Rajd"
+    "Yoshi siedzi na komputerze", "Źle czyta", "aha", "Redbullek", "Ban", "Timeout", "Rajd", "Śpiewanie",
+    "Ta? To zajebiście", "CO??!?", "kotoviczka", "Czekaj", "oho"
 ];
 
 // Main elements
